@@ -73,6 +73,20 @@ def main():
     
     args = parser.parse_args()
 
+    # TODO: parse out directly from ONEfile using Python API (instead of converting to text; 
+    # currently need to take in .txt files which are the result of e.g. ONEview graph.gbwt > graph.gbwt.txt)
+    
+    #####################
+    # e.g.
+    # import ONEcode
+    # schema = ONEcode.ONEschema(open("...").read())
+    # Read schema from a file
+    # Construct a ONEfile object
+    # onefile = ONEcode.ONEfile("...", "r", schema, "...", 1)
+    # Various methods
+    # onefile.readLine()
+    #####################
+
     sequences = parse_fasta(args.fasta_file)
     print("parsed seq")
     submer_size = len(next(iter(sequences.values())))
