@@ -95,7 +95,7 @@ int main (int argc, char *argv[])
 
     Seqhash *sh = seqhashCreate (params.k, params.w+1, params.seed) ; // need the +1 here, awkwardly
     KmerHash  *kh = kmerHashReadOneFile (ofK) ;    // read in the kmerhash
-    I64 nSync = kmerHashMax(kh);
+    I64 nSync = kmerHashMax(kh) + 1;
     printf("nSync: %llu\n", nSync);
 
     if (kh->len != params.w + params.k)
