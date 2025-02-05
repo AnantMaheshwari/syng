@@ -15,8 +15,10 @@ def parse_gbwt(file_path, submer_size):
                 reverse = int(parts[1]) < 0
                 parts[1] = str(abs(int(parts[1])))
                 from_node, to_node = (parts[1], node_id) if line.startswith("E") else (node_id, parts[1])
-                from_direction = "-" if reverse and line.startswith("E") else "+"
-                to_direction = "-" if reverse and line.startswith("e") else "+"
+                #from_direction = "-" if reverse and line.startswith("E") else "+"
+                from_direction = "+" if line.startswith("E") else "-"
+                #to_direction = "-" if reverse and line.startswith("e") else "+"
+                to_direction = "-" if reverse else "+"
                 overlap = int(parts[2])
                 links.append({"from": from_node, "to": to_node, "from_direction": from_direction, "to_direction": to_direction, "overlap": submer_size - overlap})
     return segments, links
